@@ -1,0 +1,38 @@
+# CloudDrive .htaccess
+Options -Indexes -ExecCGI
+
+# Protect sensitive files
+<FilesMatch "(config\.php|install\.sh|\.env)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Block direct access to storage
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^storage/ - [F,L]
+</IfModule>
+
+# PHP settings (shared hosting overrides)
+<IfModule mod_php7.c>
+    php_value upload_max_filesize 500M
+    php_value post_max_size 510M
+    php_value memory_limit 256M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+    php_flag display_errors Off
+    php_flag log_errors On
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Gzip compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript
+</IfModule>

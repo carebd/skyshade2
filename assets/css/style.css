@@ -1,0 +1,66 @@
+/* CloudDrive Stylesheet */
+* { box-sizing: border-box; }
+body { background: #0f172a; color: #e2e8f0; font-family: 'Segoe UI', system-ui, sans-serif; margin: 0; }
+
+.navbar { background: #1e293b !important; border-bottom: 1px solid #334155; }
+.navbar-brand { color: #e2e8f0 !important; font-size: 1.1rem; }
+
+.sidebar { background: #1e293b; border-right: 1px solid #334155; min-height: calc(100vh - 56px); }
+.main-content { padding-left: 24px; }
+
+.upload-btn { background: #3b82f6; border: none; font-weight: 600; }
+.upload-btn:hover { background: #2563eb; }
+
+.file-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 16px 12px 12px;
+  text-align: center;
+  cursor: default;
+  transition: border-color .15s, box-shadow .15s;
+  position: relative;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.file-card:hover { border-color: #3b82f6; box-shadow: 0 0 0 1px #3b82f6; }
+.folder-card { border-color: #475569; }
+.folder-card:hover { border-color: #f59e0b; box-shadow: 0 0 0 1px #f59e0b; }
+
+.file-icon { font-size: 2.2rem; line-height: 1; }
+.file-name { font-size: .8rem; color: #cbd5e1; margin-top: 6px; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.file-name a { color: #e2e8f0 !important; }
+.file-size { font-size: .7rem; color: #64748b; }
+.file-actions a { font-size: 1rem; text-decoration: none; }
+.file-actions a:hover { opacity: .7; }
+
+.breadcrumb { background: transparent; padding: 0; margin: 0; }
+.breadcrumb-item a { color: #60a5fa; text-decoration: none; font-size: .9rem; }
+.breadcrumb-item.active { color: #94a3b8; font-size: .9rem; }
+.breadcrumb-item + .breadcrumb-item::before { color: #475569; }
+
+.search-box { background: #0f172a; border: 1px solid #334155; color: #e2e8f0; width: 220px; border-radius: 8px; }
+.search-box:focus { background: #0f172a; border-color: #3b82f6; color: #e2e8f0; box-shadow: none; }
+
+.upload-zone {
+  border: 2px dashed #334155;
+  border-radius: 12px;
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+  color: #64748b;
+  transition: border-color .15s;
+}
+.upload-zone:hover, .upload-zone.drag-over { border-color: #3b82f6; color: #3b82f6; }
+
+.empty-state { text-align: center; padding: 80px 20px; color: #475569; }
+
+.progress { background: #1e293b; border-radius: 4px; }
+.alert-success { background: #052e16; border-color: #166534; color: #86efac; }
+.alert-danger  { background: #450a0a; border-color: #991b1b; color: #fca5a5; }
+.alert-info    { background: #0c1a2e; border-color: #1e40af; color: #93c5fd; }
+.alert-warning { background: #1c1007; border-color: #92400e; color: #fcd34d; }
+.modal-content.bg-dark { background: #1e293b !important; }
