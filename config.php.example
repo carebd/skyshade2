@@ -1,0 +1,36 @@
+<?php
+// CloudDrive Configuration
+// ─────────────────────────────────────────────────────────────────────────────
+// Copy this file to config.php and fill in your values.
+// The web installer (install.php) generates this file automatically.
+// DO NOT share or commit config.php — it contains database credentials.
+// ─────────────────────────────────────────────────────────────────────────────
+
+define('CD_INSTALLED', true);
+
+// Database (MySQL / MariaDB)
+// On cPanel shared hosting the DB name and user always include your cPanel
+// username as a prefix, e.g. "cpuser_cloudrive" and "cpuser_cduser".
+define('DB_HOST',  'localhost');   // almost always 'localhost' on shared hosting
+define('DB_NAME',  'your_db_name');
+define('DB_USER',  'your_db_user');
+define('DB_PASS',  'your_db_password');
+
+// Full URL to this installation (no trailing slash)
+define('SITE_URL', 'https://yourdomain.com');
+
+// Absolute path to the folder that stores uploaded files
+define('STORAGE_PATH', __DIR__ . '/storage');
+
+// Maximum file size per upload (bytes). Default: 500 MB (500 * 1024 * 1024)
+define('MAX_UPLOAD_SIZE', 524288000);
+
+// Application settings
+define('APP_NAME',    'CloudDrive');
+define('APP_VERSION', '1.0.0');
+
+// How long (in seconds) a login session stays alive without activity. Default: 1 hour
+define('SESSION_LIFETIME', 3600);
+
+// Comma-separated list of permitted upload extensions
+define('ALLOWED_EXTENSIONS', 'jpg,jpeg,png,gif,webp,pdf,doc,docx,xls,xlsx,ppt,pptx,txt,csv,zip,rar,7z,mp4,mp3,avi,mov');
