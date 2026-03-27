@@ -2,7 +2,7 @@
 Options -Indexes -ExecCGI
 
 # Protect sensitive files
-<FilesMatch "(config\.php|install\.sh|\.env)$">
+<FilesMatch "(config\.php|install\.sh|\.env|dbtest\.php|Databse\ PW\.txt|\.gitignore|\.gitkeep)$">
     Order allow,deny
     Deny from all
 </FilesMatch>

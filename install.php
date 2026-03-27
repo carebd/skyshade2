@@ -171,6 +171,10 @@ $all_met = !in_array(false, $requirements, true);
   .form-control, .form-select { background: #0f172a; border-color: #334155; color: #e2e8f0; }
   .form-control:focus { background: #0f172a; border-color: #3b82f6; color: #e2e8f0; box-shadow: 0 0 0 0.2rem rgba(59,130,246,.25); }
   label { color: #94a3b8; font-size: .85rem; margin-bottom: 4px; }
+  .alert-success { background: #052e16; border-color: #166534; color: #86efac; }
+  .alert-danger  { background: #450a0a; border-color: #991b1b; color: #fca5a5; }
+  .alert-info    { background: #0c1a2e; border-color: #1e40af; color: #93c5fd; }
+  code { background: #0f172a; padding: 2px 5px; border-radius: 4px; font-size: .8rem; color: #60a5fa; }
 </style>
 </head>
 <body>
@@ -182,7 +186,8 @@ $all_met = !in_array(false, $requirements, true);
     <div class="alert alert-success">
       <h5>✅ Installation Complete!</h5>
       <p class="mb-2">Your CloudDrive is ready. The installer has been deleted for security.</p>
-      <a href="index.php" class="btn btn-success btn-sm">Go to CloudDrive →</a>
+      <p class="mb-3 small">Log in with the admin username and password you set above.</p>
+      <a href="login.php" class="btn btn-success btn-sm">Go to Login →</a>
     </div>
   <?php else: ?>
 
@@ -209,6 +214,9 @@ $all_met = !in_array(false, $requirements, true);
   <form method="POST">
     <input type="hidden" name="step" value="2">
     <h6 class="text-uppercase text-secondary small mb-3 mt-2">Database Configuration</h6>
+    <div class="alert alert-info py-2 small mb-3">
+      💡 <strong>cPanel / Shared Hosting tip:</strong> Database names and usernames always include your cPanel account prefix, e.g. <code>cpuser_cloudrive</code> — check <em>cPanel → MySQL® Databases</em> for the exact names.
+    </div>
     <div class="row g-3 mb-3">
       <div class="col-6">
         <label>DB Host</label>
@@ -236,11 +244,11 @@ $all_met = !in_array(false, $requirements, true);
       </div>
       <div class="col-4">
         <label>Admin Username</label>
-        <input type="text" name="admin_username" class="form-control" value="<?= htmlspecialchars($_POST['admin_username'] ?? 'admin') ?>" required>
+        <input type="text" name="admin_username" class="form-control" value="<?= htmlspecialchars($_POST['admin_username'] ?? 'Admin') ?>" required>
       </div>
       <div class="col-4">
-        <label>Admin Password</label>
-        <input type="password" name="admin_password" class="form-control" required>
+        <label>Admin Password <small class="text-secondary">(min 8 chars)</small></label>
+        <input type="password" name="admin_password" class="form-control" required minlength="8">
       </div>
       <div class="col-4">
         <label>Admin Email</label>
